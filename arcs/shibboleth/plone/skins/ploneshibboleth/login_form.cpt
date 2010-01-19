@@ -44,7 +44,7 @@
 
             <dd id="fieldset-shibboleth-login">
 
-                <form tal:attributes="action string:http://Shibboleth.sso/DS"
+                <form tal:attributes="action string:/Shibboleth.sso/DS"
                       class="enableAutoFocus"
                       method="get"
                       tal:condition="python:auth">
