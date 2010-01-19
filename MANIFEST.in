@@ -1,0 +1,3 @@
+recursive-include arcs *.xml *.txt *.zpt *.zcml *.png *.stx *.pt *.gif *.cpt *.metadata
+include docs/*
+include README.txt
