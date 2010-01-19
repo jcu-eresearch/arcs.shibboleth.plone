@@ -52,6 +52,7 @@ def createShibbolethPlugin(portal, out):
     #        id="shibboleth", title="Shibboleth authentication plugin")
     p=ShibbolethHelper(id='shibboleth', title="Shibboleth authentication plugin")
     acl._setObject(p.getId(), p)
+    p.login_path = 'login_form'
 
 
 def activatePlugin(portal, out, plugin):
