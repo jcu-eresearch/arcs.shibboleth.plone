@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="arcs.shibboleth.plone-various" version="201001191"
+               handler="arcs.shibboleth.plone.setuphandlers.importVarious"
+               title="Setup Shibboleth authentication in Plone">
+    Add Shibboleth authentication support to Plone. This modifies the login form to add Shibboleth support.
+  </import-step>
+</import-steps>
