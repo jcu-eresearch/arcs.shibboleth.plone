@@ -27,7 +27,7 @@ from plone.portlets.interfaces import IPortletManager
 from plone.app.openid.portlets.login import Assignment as LoginAssignment
 from Products.CMFCore.utils import getToolByName
 from Products.PluggableAuthService.interfaces.plugins \
-                import IExtractionPlugin
+                import IExtractionPlugin, IPropertiesPlugin
 
 from jcu.shibboleth.pas.interface import IShibbolethHelper
 from jcu.shibboleth.pas.plugin import ShibbolethHelper
@@ -75,6 +75,11 @@ def activatePlugin(portal, out, plugin):
                         (interface_name, info["title"])
 
     plugin.manage_activateInterfaces(activate)
+
+    for k, v in acl.plugins.listPlugins(IPropertiesPlugin):
+        if k == 'shibboleth':
+            while not acl.plugins.listPlugins(IPropertiesPlugin)[0][0] == 'shibboleth':
+                acl.plugins.movePluginsUp(IPropertiesPlugin, ['shibboleth'])
 
 
 def importVarious(context):

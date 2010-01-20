@@ -42,4 +42,8 @@ check that the plugin is activated correctly
     ...         print v
     <ShibbolethHelper at shibboleth>
 
+check that the first properties plugin is shibboleth
+    >>> app.plone.acl_users.plugins.listPlugins(IPropertiesPlugin)[0][0]
+    'shibboleth'
+
 
