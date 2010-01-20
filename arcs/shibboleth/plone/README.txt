@@ -14,7 +14,7 @@ check that the login form is set
 
 check that the plugin is activated correctly
     >>> from Products.PluggableAuthService.interfaces.plugins import \
-    ... ILoginPasswordExtractionPlugin, IChallengePlugin, IAuthenticationPlugin, \
+    ... IExtractionPlugin, IChallengePlugin, IAuthenticationPlugin, \
     ... IRolesPlugin, IGroupsPlugin, IUserEnumerationPlugin, IPropertiesPlugin
 
     >>> for k, v in app.plone.acl_users.plugins.listPlugins(IChallengePlugin):
@@ -27,7 +27,7 @@ check that the plugin is activated correctly
     ...         print v
     <ShibbolethHelper at shibboleth>
 
-    >>> for k, v in app.plone.acl_users.plugins.listPlugins(ILoginPasswordExtractionPlugin):
+    >>> for k, v in app.plone.acl_users.plugins.listPlugins(IExtractionPlugin):
     ...     if k == 'shibboleth':
     ...         print v
     <ShibbolethHelper at shibboleth>

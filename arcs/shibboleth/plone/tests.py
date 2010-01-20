@@ -49,7 +49,20 @@ setup_product()
 
 ptc.setupPloneSite(products=['arcs.shibboleth.plone'])
 
+
 class TestCase(ptc.PloneTestCase):
+    """We use this base class for all the tests in this package. If
+    necessary, we can put common utility or setup code in here. This
+    applies to unit test cases.
+    """
+    pass
+
+
+class FunctionalTestCase(ptc.FunctionalTestCase):
+    """We use this class for functional integration tests that use
+    doctest syntax. Again, we can put basic common utility or setup
+    code in here.
+    """
     pass
 
 
@@ -69,7 +82,7 @@ def test_suite():
         # Integration tests that use PloneTestCase
         ztc.ZopeDocFileSuite(
             'README.txt', package='arcs.shibboleth.plone',
-            test_class=TestCase),
+            test_class=FunctionalTestCase),
 
         #ztc.FunctionalDocFileSuite(
         #    'browser.txt', package='arcs.shibboleth.plone',
