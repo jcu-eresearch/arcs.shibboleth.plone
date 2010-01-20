@@ -52,8 +52,11 @@ def createShibbolethPlugin(portal, out):
     #        id="shibboleth", title="Shibboleth authentication plugin")
     p=ShibbolethHelper(id='shibboleth', title="Shibboleth authentication plugin")
     acl._setObject(p.getId(), p)
-    p.login_path = 'login_form'
 
+def configurePlugin(portal, out, plugin):
+    acl=getToolByName(portal, "acl_users")
+    plugin=getattr(acl, plugin)
+    plugin.login_path = 'login_form'
 
 def activatePlugin(portal, out, plugin):
     acl=getToolByName(portal, "acl_users")
@@ -83,6 +86,7 @@ def importVarious(context):
     out = StringIO()
     if not hasShibbolethPlugin(site):
         createShibbolethPlugin(site, out)
-        #activatePlugin(site, out, "shibboleth")
+        configurePlugin(site, out, "shibboleth")
+        activatePlugin(site, out, "shibboleth")
 
 
