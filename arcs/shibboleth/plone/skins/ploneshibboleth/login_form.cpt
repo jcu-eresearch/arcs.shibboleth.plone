@@ -39,7 +39,7 @@
 
         <tal:shibboleth>
             <dt id="fieldsetlegend-shibboleth-login" i18n:translate="legend_shibboleth">
-                shibboleth login
+                AAF login
             </dt>
 
             <dd id="fieldset-shibboleth-login">
@@ -54,20 +54,23 @@
                          value=""
                          tal:attributes="value came_from" />
 
-                   <div class="formControls">
+                   <div class="formControls" style="text-align: center;">
+                       <img src="aaf_logo.png"
+                            alt="Australian Access Federation"/>
+                       <br/>
                        <input class="context"
                               type="submit"
                               name="shibboleth_submit"
                               value="Log in"
                               i18n:attributes="value label_shibboleth_log_in;"
                               />
-                       <a href="http://shibboleth.internet2.edu" class="discreet link-plain"
-                          i18n:translate="info_shibboleth">What is shibboleth?</a>
-                  </div>
+                       <a href="http://www.aaf.edu.au/index.php/about/" class="discreet link-plain"
+                          i18n:translate="info_shibboleth">What is AAF?</a>
+                   </div>
 
                    <p class="discreet"
                        i18n:translate="shibboleth_intro">
-                      If you do not have an shibboleth identity, you may get one from 
+                      If your local institution doesn't have an AAF idnetity provider you may get one from the 
                       <a href="https://idp.arcs.org.au/idp_reg/"
                          class="link-plain"
                          target="_blank"
