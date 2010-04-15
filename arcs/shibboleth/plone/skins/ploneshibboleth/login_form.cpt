@@ -70,7 +70,7 @@
 
                    <p class="discreet"
                        i18n:translate="shibboleth_intro">
-                      If your local institution doesn't have an AAF idnetity provider you may get one from the 
+                      If your local institution doesn't have an AAF identity provider you may get one from the 
                       <a href="https://idp.arcs.org.au/idp_reg/"
                          class="link-plain"
                          target="_blank"
