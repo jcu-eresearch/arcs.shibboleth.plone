@@ -65,7 +65,7 @@
                               i18n:attributes="value label_shibboleth_log_in;"
                               />
                        <a href="http://www.aaf.edu.au/index.php/about/" class="discreet link-plain"
-                          i18n:translate="info_shibboleth">What is AAF?</a>
+                          i18n:translate="info_shibboleth">What is the AAF?</a>
                    </div>
 
                    <p class="discreet"
