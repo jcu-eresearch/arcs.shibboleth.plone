@@ -13,7 +13,7 @@ wayf_border_color = '#FFFFFF';
 wayf_background_color = '#FFFFFF';
 wayf_font_size = 12;
 wayf_auto_login = true;
-wayf_set_remember_checkbox = true;
+wayf_set_remember_checkbox = false;
 wayf_hide_categories =  new Array("upcoming");
 
 //-->
