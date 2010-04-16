@@ -2,8 +2,36 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="plone">
 <head>
-    <script type="text/javascript" metal:fill-slot="javascript_head_slot">
+    <metal:js metal:fill-slot="javascript_head_slot">
+    <script type="text/javascript">
+<!--
+wayf_use_discovery_service = false;
+wayf_URL = "https://ds.aaf.edu.au/discovery/DS";
+wayf_font_color = '#000000';
+wayf_use_small_logo = false;
+wayf_border_color = '#FFFFFF';
+wayf_background_color = '#FFFFFF';
+wayf_font_size = 12;
+wayf_auto_login = true;
+wayf_set_remember_checkbox = true;
+wayf_hide_categories =  new Array("upcoming");
+
+//-->
     </script>
+    <script type="text/javascript" 
+     tal:content="structure string:wayf_sp_handlerURL = '${context/@@shibboleth_info/getHostName}/Shibboleth.sso';">
+    </script>
+    <script type="text/javascript" 
+     tal:content="structure string:wayf_sp_samlDSURL = '${context/@@shibboleth_info/getHostName}/Shibboleth.sso/DS';">
+    </script>
+    <script type="text/javascript" 
+     tal:content="structure string:wayf_sp_entityID = '${context/@@shibboleth_info/getHostName}/shibboleth';">
+    </script>
+    <script type="text/javascript" 
+     tal:define="return_url request/came_from|request/HTTP_REFERER|string:${portal_url}"
+     tal:content="structure string:wayf_return_url = '$return_url';">
+    </script>
+    </metal:js>
     <metal:css fill-slot="css_slot">
       <style type="text/css" media="all">
         input.shibbolethUrl {
@@ -44,7 +72,9 @@
 
             <dd id="fieldset-shibboleth-login">
 
-                <form tal:attributes="action string:/Shibboleth.sso/DS"
+                <script type="text/javascript" src="https://ds.aaf.edu.au/discovery/DS/embedded-wayf.js"></script>
+                <noscript>
+                <form tal:attributes="action string:${context/@@shibboleth_info/getHostName}/Shibboleth.sso/DS"
                       class="enableAutoFocus"
                       method="get"
                       tal:condition="python:auth">
@@ -54,20 +84,18 @@
                          value=""
                          tal:attributes="value came_from" />
 
-                   <div class="formControls" style="text-align: center;">
-                       <img src="aaf_logo.png"
-                            alt="Australian Access Federation"/>
-                       <br/>
+                   <div class="formControls">
                        <input class="context"
                               type="submit"
                               name="shibboleth_submit"
                               value="Log in"
                               i18n:attributes="value label_shibboleth_log_in;"
                               />
-                       <a href="http://www.aaf.edu.au/index.php/about/" class="discreet link-plain"
-                          i18n:translate="info_shibboleth">What is the AAF?</a>
-                   </div>
-
+                       <a href="http://shibboleth.internet2.edu" class="discreet link-plain"
+                          i18n:translate="info_shibboleth">What is shibboleth?</a>
+                  </div>
+               </form>
+               </noscript>
                    <p class="discreet"
                        i18n:translate="shibboleth_intro">
                       If your local institution doesn't have an AAF identity provider you may get one from the 
@@ -76,8 +104,6 @@
                          target="_blank"
                          i18n:name="shibboleth_myshibboleth">ARCS Identity Provider</a>.
                    </p>
-
-               </form>
            </dd>
        </tal:shibboleth>
 

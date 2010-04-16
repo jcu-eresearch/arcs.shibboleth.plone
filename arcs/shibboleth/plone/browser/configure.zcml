@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="arcs.project">
+    <!-- -*- extra stuff goes here -*- -->
+
+  <browser:page
+      for="*"
+      name="shibboleth_info"
+      class=".shibboleth.ShibbolethInfoView"
+      permission="zope2.View"
+      allowed_interface="Products.PlonePAS.interfaces.browser.IPASInfoView"
+      />
+
+</configure>

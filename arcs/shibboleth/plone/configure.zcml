@@ -20,4 +20,5 @@
 
     <include package="jcu.shibboleth.pas" />
 
+    <include package=".browser" />
 </configure>
