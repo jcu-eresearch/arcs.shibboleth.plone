@@ -106,13 +106,16 @@ wayf_hide_categories =  new Array("upcoming");
                    </p>
            </dd>
        </tal:shibboleth>
+   </dl>
+</div>
 
-        <tal:sitelogin condition="pas_info/hasLoginPasswordExtractor">
-            <dt id="fieldsetlegend-site-login" i18n:translate="legend_sitelogin">
+<tal:sitelogin condition="pas_info/hasLoginPasswordExtractor">
+<dl class="collapsible collapsedOnLoad" style="display: none;">
+    <dt id="fieldsetlegend-site-login" i18n:translate="legend_sitelogin">
             Site login
             </dt>
 
-            <dd id="fieldset-site-login">
+            <dd class="collapsibleContent" id="fieldset-site-login">
                 <form tal:attributes="action python:context.absolute_url()+'/'+template.id"
                      method="post"
                      id="login_form"
@@ -233,9 +236,8 @@ wayf_hide_categories =  new Array("upcoming");
                    </div>
                 </form>
             </dd>
+        </dl>
         </tal:sitelogin>
-    </dl>
-</div>
 </metal:login>
 
 </div>

@@ -6,8 +6,36 @@
       i18n:domain="plone">
 
       <head>
-          <script type="text/javascript" metal:fill-slot="javascript_head_slot">
-          </script>
+          <metal:js metal:fill-slot="javascript_head_slot">
+          <script type="text/javascript">
+<!--
+wayf_use_discovery_service = false;
+wayf_URL = "https://ds.aaf.edu.au/discovery/DS";
+wayf_font_color = '#000000';
+wayf_use_small_logo = false;
+wayf_border_color = '#FFFFFF';
+wayf_background_color = '#FFFFFF';
+wayf_font_size = 12;
+wayf_auto_login = true;
+wayf_set_remember_checkbox = false;
+wayf_hide_categories =  new Array("upcoming");
+
+//-->
+    </script>
+    <script type="text/javascript" 
+     tal:content="structure string:wayf_sp_handlerURL = '${context/@@shibboleth_info/getHostName}/Shibboleth.sso';">
+    </script>
+    <script type="text/javascript" 
+     tal:content="structure string:wayf_sp_samlDSURL = '${context/@@shibboleth_info/getHostName}/Shibboleth.sso/DS';">
+    </script>
+    <script type="text/javascript" 
+     tal:content="structure string:wayf_sp_entityID = '${context/@@shibboleth_info/getHostName}/shibboleth';">
+    </script>
+    <script type="text/javascript" 
+     tal:define="return_url request/came_from|request/HTTP_REFERER|string:${portal_url}"
+     tal:content="structure string:wayf_return_url = '$return_url';">
+    </script>
+    </metal:js>
     <metal:css fill-slot="css_slot">
       <style type="text/css" media="all">
         input.shibbolethUrl {
@@ -53,7 +81,7 @@
     
     <p i18n:translate="description_quit_to_log_out">
     Because you are logged in via HTTP authentication 
-    (i.e. the Zope Management Interface), the only
+    (i.e. the AAF login), the only
     way to log out is to quit your web browser.
     </p>
 </tal:notloggedoutafterall>
